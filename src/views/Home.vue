@@ -19,18 +19,25 @@ export default {
   },
   setup() {
     const sampleText = ref('Home Component.')
-    const anotherText = reactive('Another Component.')
+    let anotherText = reactive('Another Component.')
+    const newObj = reactive({
+      name: 'Ann',
+      age: 20
+    })
     const checkResult = onMounted(() => {
       console.log(sampleText, anotherText)
     })
     const changeText = () => {
       sampleText.value = 'changed text...0'
-      console.log(checkText.value[0])
+      newObj.name = 'Kelu'
+      anotherText = 'change reactive'
+      console.log(checkText.value[0], newObj, anotherText)
     }
     const checkText = computed(() => {
       return {0: sampleText.value}
     })
     return {
+      newObj,
       sampleText,
       checkResult,
       anotherText,
