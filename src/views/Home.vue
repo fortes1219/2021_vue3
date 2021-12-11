@@ -1,18 +1,42 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home" data-inset="1rem">
+    <el-button type="primary" @click="changeText">Click</el-button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import {
+  ref,
+  toRefs,
+  reactive, 
+  computed,
+  onMounted,
+  onBeforeMount 
+} from 'vue'
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+  },
+  setup() {
+    const sampleText = ref('Home Component.')
+    const anotherText = reactive('Another Component.')
+    const checkResult = onMounted(() => {
+      console.log(sampleText, anotherText)
+    })
+    const changeText = () => {
+      sampleText.value = 'changed text...0'
+      console.log(checkText.value[0])
+    }
+    const checkText = computed(() => {
+      return {0: sampleText.value}
+    })
+    return {
+      sampleText,
+      checkResult,
+      anotherText,
+      checkText,
+      changeText
+    }
   }
 }
 </script>
