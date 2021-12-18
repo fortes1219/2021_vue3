@@ -1,0 +1,5 @@
+{
+  "name": "Provide",
+  "child": "Inject",
+  "baseUrl:": "localhost:8080/Provide"
+}
