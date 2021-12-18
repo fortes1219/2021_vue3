@@ -1,5 +1,5 @@
 <template>
-  <div class="home" data-inset="1rem">
+  <div class="page" data-inset="1rem">
     <el-button type="primary" @click="changeText">Click</el-button>
   </div>
 </template>
