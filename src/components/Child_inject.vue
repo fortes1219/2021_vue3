@@ -4,21 +4,18 @@
     <div>{{ 'layer 1: ' + text }}</div>
   </div>
   <layer2 :text="obj.name" />
-  <layer3 :text="obj.child" />
 </template>
 
 <script>
 import { inject, reactive, computed, onMounted, compile } from 'vue'
 import layer2 from '@/components/Child_inject_layer2.vue'
-import layer3 from '@/components/Child_inject_layer3.vue'
 export default {
   name: 'ChildInject',
   props: {
     text: String
   },
   components: {
-    layer2,
-    layer3
+    layer2
   },
   setup() {
     const rootObj = inject('rootObj')
